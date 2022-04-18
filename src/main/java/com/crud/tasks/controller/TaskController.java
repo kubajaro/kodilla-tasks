@@ -20,7 +20,7 @@ public class TaskController {
     private final TaskMapper taskMapper;
 
     @GetMapping
-    public ResponseEntity<List<TaskDto>> getTasks() {
+    public ResponseEntity<List<TaskDto>> getTasks() throws TaskNotFoundException {
         List<Task> taskList = service.getAllTasks();
         return ResponseEntity.ok(taskMapper.mapToTaskDtoList(taskList));
     }
