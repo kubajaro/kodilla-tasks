@@ -20,7 +20,7 @@ public class TrelloController {
 
     private final TrelloClient trelloClient;
 
-    @GetMapping("boards")
+    @GetMapping("/boards")
     public ResponseEntity<List<TrelloBoardDto>> getTrelloBoards() {
         List<TrelloBoardDto> trelloBoardDtos = trelloClient.getTrelloBoards().stream()
                 .filter(o -> o.getId()!=null)
@@ -30,7 +30,7 @@ public class TrelloController {
         return ResponseEntity.ok(trelloBoardDtos);
     }
 
-    @PostMapping("cards")
+    @PostMapping("/cards")
     public ResponseEntity<CreatedTrelloCard> createdTrelloCards(@RequestBody TrelloCardDto trelloCardDto) {
         return ResponseEntity.ok(trelloClient.createNewCard(trelloCardDto));
     }
