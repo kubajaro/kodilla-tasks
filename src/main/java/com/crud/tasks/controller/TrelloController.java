@@ -20,7 +20,7 @@ public class TrelloController {
 
     private final TrelloClient trelloClient;
 
-    @GetMapping("/boards")
+    @GetMapping("boards")
     public ResponseEntity<List<TrelloBoardDto>> getTrelloBoards() {
         List<TrelloBoardDto> trelloBoardDtos = trelloClient.getTrelloBoards().stream()
                 .filter(o -> o.getId()!=null)
