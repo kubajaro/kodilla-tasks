@@ -23,7 +23,6 @@ public class TrelloController {
     public ResponseEntity<List<TrelloBoardDto>> getTrelloBoards() {
         List<TrelloBoardDto> trelloBoardDtos = trelloClient.getTrelloBoards().stream()
                 .filter(o -> o.getId()!=null)
-                .filter(o -> o.getName().toLowerCase().contains("kodilla"))
                 .collect(Collectors.toList());
 
         return ResponseEntity.ok(trelloBoardDtos);
