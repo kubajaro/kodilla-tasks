@@ -14,8 +14,8 @@ public class DbService {
 
     private final TaskRepository taskRepository;
 
-    public List<Task> getAllTasks() {
-        return taskRepository.findAll();
+    public List<Task> getAllTasks() throws TaskNotFoundException {
+        return (List<Task>) taskRepository.findAll();
     }
 
     public Task getTask(long id) throws TaskNotFoundException {
